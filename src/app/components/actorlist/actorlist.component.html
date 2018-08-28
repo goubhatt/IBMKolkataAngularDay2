@@ -1,0 +1,46 @@
+<div>
+  <h3>List of Actors</h3>
+  <table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>City</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let actor of actors; index as ndx" (dblclick)="editActor(ndx)">
+        <td>
+          <span *ngIf="ndx != selectedIndex">{{ actor.name }}</span>
+          <span *ngIf="ndx == selectedIndex"><input type="text" [(ngModel)]="tempActor.name"></span>
+        </td>
+        <td>
+          <span *ngIf="ndx != selectedIndex">{{ actor.city }}</span>
+          <span *ngIf="ndx == selectedIndex"><input type="text" [(ngModel)]="tempActor.city"></span>
+        </td>
+        <td>
+          <span *ngIf="ndx != selectedIndex">
+            <button (click)="editActor(ndx)" class="btn btn-primary">
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+          </span>
+          <span *ngIf="ndx != selectedIndex">
+              <button (click)="deleteActor(ndx)" class="btn btn-danger">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              </button>
+            </span>
+            <span *ngIf="ndx == selectedIndex">
+            <button (click)="saveActor(ndx)" class="btn btn-danger">
+              <i class="fa fa-floppy-o" aria-hidden="true"></i>
+            </button>
+          </span>
+          <span *ngIf="ndx == selectedIndex">
+            <button (click)="cancelEdit()" class="btn btn-danger">
+              <i class="fa fa-undo" aria-hidden="true"></i>
+            </button>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
