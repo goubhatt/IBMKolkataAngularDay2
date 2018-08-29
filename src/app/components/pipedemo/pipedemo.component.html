@@ -1,0 +1,18 @@
+<h3>Pipe Demo</h3>
+<div>
+  <input type="text" [(ngModel)]="message">
+  <div>Your Message: {{ message | uppercase}}</div>
+  <div>Your Message: {{ message | titlecase}}</div>
+  <div>Today is: {{ today | date: 'mediumTime' }} </div>
+  <div>Today is: {{ today | date: 'd/MMM/yyyy' }} </div>
+  <div>The cost is: {{ cost | currency }}</div>
+  <div>The cost is: {{ cost | currency:'INR' }}</div>
+  <div>The cost is: {{ cost | currency:'GBP' }}</div>
+  <div>The cost is: {{ cost | currency:'EUR' }}</div>
+  <div>The cost is: {{ cost | currency:'\u20b9' }}</div>
+  
+  <div>Your Reversed Message: {{ message | reversetext}}</div>
+  
+  <div>Your piglatin Message: {{ message | piglatin}}</div>
+
+</div>
